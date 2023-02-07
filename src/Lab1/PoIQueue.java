@@ -45,6 +45,7 @@ public class PoIQueue<E> implements Queue<E>{
         return answer;
     }
 
+    // TODO: Improve by using pointer concatenation
     public PoIQueue<E> concatenate(PoIQueue<E> q) {
         PoIQueue<E> newQueue = new PoIQueue<>();
         while(!this.isEmpty()){

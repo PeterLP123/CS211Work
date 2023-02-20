@@ -14,6 +14,7 @@ public class Lab3Test {
         taskList.Insert_sorted(T4);
         taskList.Insert_sorted(T5);
         taskList.Insert_sorted(T6);
+        System.out.println("------------------\nSingly Linked List\n------------------");
         taskList.printTaskTimes();
 
         MyDoublyLinkedList<Task> taskList2 = new MyDoublyLinkedList<>();
@@ -29,6 +30,7 @@ public class Lab3Test {
         taskList2.Insert_sorted(T10);
         taskList2.Insert_sorted(T11);
         taskList2.Insert_sorted(T12);
+        System.out.println("------------------\nDoubly Linked List\n------------------");
         taskList2.printTaskTimes();
     }
 }

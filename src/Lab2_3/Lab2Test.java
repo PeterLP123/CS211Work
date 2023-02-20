@@ -1,4 +1,4 @@
-package Lab2;
+package Lab2_3;
 public class Lab2Test {
     public static void main(String[] args) {
         SinglyLinkedList<Task> taskList = new SinglyLinkedList<>();

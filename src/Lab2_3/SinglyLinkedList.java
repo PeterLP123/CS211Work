@@ -1,4 +1,4 @@
-package Lab2;
+package Lab2_3;
 public class SinglyLinkedList<E> {
     //---------------- nested Node class ----------------
     /**
@@ -127,6 +127,18 @@ public class SinglyLinkedList<E> {
         tail = newest;                           // new node becomes the tail
         size++;
     }
+
+    /**
+     * Inserts an element after a given node.
+     * @param n  the node to insert after
+     * @param e  the new element to insert
+     */
+    public void addAfter(Node<E> n, E e){     // adds element e after node n
+        Node<E> newest = new Node<>(e, n.getNext()); // create and link a new node
+        n.setNext(newest);                       // link n to newest
+        size++;
+    }
+
 
     /**
      * Removes and returns the first element of the list.

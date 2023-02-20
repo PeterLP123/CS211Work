@@ -1,4 +1,4 @@
-package Lab2;
+package Lab2_3;
 public class Task {
     private String name;
     private int length;

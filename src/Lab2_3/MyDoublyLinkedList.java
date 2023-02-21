@@ -1,23 +1,15 @@
 package Lab2_3;
 public class MyDoublyLinkedList<E> extends DoublyLinkedList<E>{
-    public void Insert_sorted(Task t) {
-        Node<E> n = header;
-        Node<E> prev = null;
-        prev = n;
-        n = n.getNext();
-        if(n.getElement() == null){
-            addFirst((E) t);
-            return;
-        }
-        while(n.getElement() != null){
-            if(t.get_length() < ((Task) n.getElement()).get_length()){
-                addBetween((E) t, prev, n);
-                return;
-            }
+    public void Insert_sorted(Task t) { // Insert a task into the list in order of length
+        Node<E> n = header.getNext();
+        Node<E> prev = header;
+        while(n.getElement() != null){ // Find the first task that is longer than the task to be inserted
+            if(t.get_length() < ((Task) n.getElement()).get_length()) break;
+            // If the task to be inserted is shorter than n, insert it between n and n.prev
             prev = n;
             n = n.getNext();
         }
-        addBetween((E) t, prev, n);
+        addBetween((E) t, prev, n); // If the task to be inserted is the longest, insert it at the end
     }
 
     public MyDoublyLinkedList(){
@@ -25,8 +17,7 @@ public class MyDoublyLinkedList<E> extends DoublyLinkedList<E>{
     }
 
     public void printTaskTimes(){
-        Node<E> n = header;
-        n = n.getNext();
+        Node<E> n = header.getNext();
         int count = 0;
         while(n.getElement() != null){
             Task t = (Task) n.getElement();

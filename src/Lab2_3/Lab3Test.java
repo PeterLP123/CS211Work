@@ -24,12 +24,14 @@ public class Lab3Test {
         Task T10 = new Task("T10", 30);
         Task T11 = new Task("T11", 10);
         Task T12 = new Task("T12", 15);
+        Task T13 = new Task("T13", 60);
         taskList2.Insert_sorted(T7);
         taskList2.Insert_sorted(T8);
         taskList2.Insert_sorted(T9);
         taskList2.Insert_sorted(T10);
         taskList2.Insert_sorted(T11);
         taskList2.Insert_sorted(T12);
+        taskList2.Insert_sorted(T13);
         System.out.println("------------------\nDoubly Linked List\n------------------");
         taskList2.printTaskTimes();
     }

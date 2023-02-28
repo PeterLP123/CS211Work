@@ -303,20 +303,20 @@ public class LinkedBinaryTree<E> extends AbstractBinaryTree<E> {
             }
             if(node1 == p1.getLeft()){
                 p1.setLeft(node2);
-                p1.setParent(p2);
+                node2.setParent(p1);
             }
             else{
                 p1.setRight(node2);
-                p1.setParent(p2);
+                node2.setParent(p1);
             }
 
             if(node2 == p2.getLeft()){
                 p2.setLeft(node1);
-                p2.setParent(p1);
+                node1.setParent(p2);
             }
             else{
                 p2.setRight(node1);
-                p2.setParent(p1);
+                node1.setParent(p2);
             }
         }
     }

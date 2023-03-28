@@ -146,4 +146,23 @@ public class HeapPriorityQueue<K,V> extends AbstractPriorityQueue<K,V> {
                 System.out.println("Invalid right child relationship");
         }
     }
+
+    public boolean Contains(K key) {
+        for (Entry<K, V> kvEntry : heap) {
+            if (kvEntry.getKey().equals(key)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public int getMax() {
+        int max = 0;
+        for (Entry<K, V> kvEntry : heap) {
+            if ((int) kvEntry.getKey() > max) {
+                max = (int) kvEntry.getKey();
+            }
+        }
+        return max;
+    }
 }

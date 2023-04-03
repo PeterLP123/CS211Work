@@ -120,4 +120,24 @@ public class ProbeHashMap<K,V> extends AbstractHashMap<K,V> {
             if (!isAvailable(h)) buffer.add(table[h]);
         return buffer;
     }
+
+    public double getLoadFactor() {
+        return (double)n/(double)capacity;
+    }
+
+    public int getCollisions() {
+        int collisions = 0;
+        for (int i = 0; i < capacity; i++) {
+            if (table[i] != null && table[i] != DEFUNCT) {
+                int j = i;
+                do {
+                    j = (j+1) % capacity;
+                    if (table[j] != null && table[j] != DEFUNCT) {
+                        collisions++;
+                    }
+                } while (j != i);
+            }
+        }
+        return collisions;
+    }
 }

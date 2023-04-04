@@ -28,14 +28,24 @@ public class Lab8Test {
         map3.put(70, 80);
         map3.put(90, 100);
 
-        System.out.println("Map 1: " + map.getLoadFactor());
-        System.out.println("Map 2: " + map2.getLoadFactor());
-        System.out.println("Map 3: " + map3.getLoadFactor());
+        ProbeHashMap<Integer, Integer> map4 = new ProbeHashMap<>(3);
+
+        System.out.println("Map 1 load factor: " + map.getLoadFactor());
+        System.out.println("Map 2 load factor: " + map2.getLoadFactor());
+        System.out.println("Map 3 load factor: " + map3.getLoadFactor());
+        System.out.println("Map 4 load factor: " + map4.getLoadFactor());
+        System.out.println("Map 1 collisions: " + map.getCollisions());
+        System.out.println("Map 2 collisions: " + map2.getCollisions());
+        System.out.println("Map 3 collisions: " + map3.getCollisions());
+        System.out.println("Map 4 collisions: " + map4.getCollisions());
 
         map.remove(1);
         map.remove(2);
         map.remove(3);
 
-        System.out.println("Map 1: " + map.getLoadFactor());
+        System.out.println("Map 1 load factor: " + map.getLoadFactor());
+        System.out.println("Map 1 collisions: " + map.getCollisions());
+
+        map.printHashMap();
     }
 }

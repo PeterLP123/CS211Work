@@ -157,4 +157,12 @@ public class ProbeHashMap<K,V> extends AbstractHashMap<K,V> {
         }
         return collisions;
     }
+
+    public void printHashMap(){
+        for (int i = 0; i < capacity; i++) {
+            if (table[i] != null && table[i] != DEFUNCT) {
+                System.out.println("Key: " + table[i].getKey() + " Value: " + table[i].getValue());
+            }
+        }
+    }
 }

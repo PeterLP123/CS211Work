@@ -13,6 +13,9 @@ public class ProbeHashMap<K,V> extends AbstractHashMap<K,V> {
     private MapEntry<K,V>[] table;        // a fixed array of entries (all initially null)
     private MapEntry<K,V> DEFUNCT = new MapEntry<>(null, null);   //sentinel
 
+    // number of "defunct" entries in the table
+    public int defunctCount = 0;
+
     // provide same constructors as base class
     /** Creates a hash table with capacity 17 and prime factor 109345121. */
     public ProbeHashMap() { super(); }
@@ -105,7 +108,21 @@ public class ProbeHashMap<K,V> extends AbstractHashMap<K,V> {
         V answer = table[j].getValue();
         table[j] = DEFUNCT;                       // mark this slot as deactivated
         n--;
+        defunctCount++;
+        if((double)defunctCount/(double)capacity > 0.25) {
+            rebuild();
+        }
         return answer;
+    }
+
+    private void rebuild() {
+        ArrayList<Entry<K,V>> buffer = new ArrayList<>(n);
+        for (Entry<K,V> e : entrySet())
+            buffer.add(e);
+        createTable();                            // based on updated capacity
+        n = 0;                                    // will be recomputed while reinserting entries
+        for (Entry<K,V> e : buffer)
+            put(e.getKey(), e.getValue());
     }
 
     /**

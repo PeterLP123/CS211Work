@@ -31,5 +31,11 @@ public class Lab8Test {
         System.out.println("Map 1: " + map.getLoadFactor());
         System.out.println("Map 2: " + map2.getLoadFactor());
         System.out.println("Map 3: " + map3.getLoadFactor());
+
+        map.remove(1);
+        map.remove(2);
+        map.remove(3);
+
+        System.out.println("Map 1: " + map.getLoadFactor());
     }
 }

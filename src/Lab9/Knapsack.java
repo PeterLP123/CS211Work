@@ -1,9 +1,5 @@
 package Lab9;
 
-import java.util.HashMap;
-import java.util.Arrays;
-import java.util.stream.Collectors;
-
 public class Knapsack {
 
     public static int knapsack(int W, int[] wt, int[] val, int n) {
